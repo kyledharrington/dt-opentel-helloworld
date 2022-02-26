@@ -81,9 +81,9 @@
 
 1. Add the relevant keys from your span & resource  attributes which you want Dynatrace to capture:
 
-    <img src="img/python_spanatts.png" width="500">
+    <img src="img/python_spanatts.png" width="700">
 
-    <img src="img/python_resourceatts.png" width="500">
+    <img src="img/python_resourceatts.png" width="700">
 
 1.  These attributes will then be stored in Dynatrace on all subsequent spans sent to Dynatrace:
 
