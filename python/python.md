@@ -22,7 +22,7 @@
 
 1. Once all dependencies are installed you will need to append the python_flask_example.py file with your dynatrace ID & api tokens at lines 40 & 43, respectively:
 
-    ![such telemetry. much wow.](img/python_config.png)
+    <img src="img/python_config<img src=" width="500">
 
     > [Please see the Send data to Dynatrace section for token scopes needed](https://www.dynatrace.com/support/help/shortlink/opent-python)
 
@@ -40,7 +40,7 @@
     ```
 1. This will generate the "Hello" response in your browser and spans via opentelemetry and send this data to Dynatrace
 
-    <img src="img/python_localhost.png" width="600">
+    <img src="img/python_localhost.png" width="500">
 
 
 ### Reviewing Open Telemetry captured by Dynatrace
@@ -49,18 +49,18 @@
 
     _Applications & Microservices --> Distributed Traces --> Ingested Traces_ 
 
-    ![such telemetry. much wow.](img/python_traces.png)
+    <img src="img/python_traces<img src=" width="500">
 
 1. Each request is captured with its opentelemetry trace ids, spans and timing metrics.
 
     > NOTE:  The Attributes section indicates "Values note stored". Unless explicitly set, Dynatrace does not store this data. We will configure some of these fields in a later step.
     
  
-    ![such telemetry. much wow.](img/python_traceid.png)
+    <img src="img/python_traceid<img src=" width="500">
 
 1.  Further information can be reviewed by  selecting "traces" from the top right of the ingested trace, providing the classic Dynatrace Purepath view for Open Telemetry traces
 
-      ![such telemetry. much wow.](img/python_path.png)
+      <img src="img/python_path<img src=" width="500">
 
 ### Storing OpenTelemetry Span and Resource Attributes in Dynatrace
 
@@ -69,22 +69,22 @@
 
 1. Clicking into the "/" request we can see the all the potential attributes Dynatrace is capturing, but not storing:
 
-    ![such telemetry. much wow.](img/python_attributes.png)
+    <img src="img/python_attributes<img src=" width="500">
 
 1. From here you can click on the "Configure allow-list used for storing span attribute values" or "Configure allow-list used for storing span resource attribute values" respectively 
 
-    ![such telemetry. much wow.](img/python_quickclick.png)
+    <img src="img/python_quickclick<img src=" width="500">
 
 1. Or you can navigate to    _Settings --> Server-side service monitoring --> OpenTelemetry & OpenTracing Spans_ 
 
-    ![such telemetry. much wow.](img/python_settings.png)
+    <img src="img/python_settings<img src=" width="500">
 
 1. Add the relevant keys from your span & resource  attributes which you want Dynatrace to capture:
 
-   ![such telemetry. much wow.](img/python_spanatts.png)
+   <img src="img/python_spanatts<img src=" width="500">
 
-   ![such telemetry. much wow.](img/python_resourceatts.png)
+   <img src="img/python_resourceatts<img src=" width="500">
 
 1.  These attributes will then be stored in Dynatrace on all subsequent spans sent to Dynatrace:
 
-![such telemetry. much wow.](img/python_attributesset.png)
+<img src="img/python_attributesset<img src=" width="500">
