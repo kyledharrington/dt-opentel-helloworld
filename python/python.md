@@ -41,7 +41,7 @@
 1. This will generate the "Hello" response in your browser and spans via opentelemetry and send this data to Dynatrace
 
 
-    ![such telemetry. much wow.](img/python_localhost.png)
+    ![such telemetry. much wow.](img/python_localhost.png =100x)
 
 
 ### Reviewing Open Telemetry captured by Dynatrace
