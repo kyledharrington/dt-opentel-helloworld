@@ -38,7 +38,7 @@ OpenTelemetry.set_tracer_provider(TracerProvider(resource=resource, sampler=samp
 
 OpenTelemetry.get_tracer_provider().add_span_processor(
     BatchSpanProcessor(OTLPSpanExporter(
-        endpoint="https://<TENANTID>.live.dynatrace.com/api/v2/otlp/v1/traces", #TODO Replace <TENANT> with your unique tenant id:
+        endpoint="https://<TENANTID>.live.dynatrace.com/api/v2/otlp/v1/traces", #TODO Replace <TENANT> with your unique  tenant id:
         headers={
             "Authorization": "Api-Token <TOKEN>" #TODO Replace <TOKEN> with your API Token scoped with "Ingest OpenTelemetry traces"
         },

@@ -9,7 +9,7 @@
 
 1. Please be sure to install the following pip dependencies in your environment 
 
-    > please note, not all of these dependencies are needed for Dynatrace instrumentation, but are required for the [Open Telemetry Example Quick Start](https://opentelemetry-python.readthedocs.io/en/latest/getting-started.html#instrumentation-example-with-flask)
+    > please note, not all of these dependencies are needed for Dynatrace instrumentation. Most are required per the [Open Telemetry Example Quick Start](https://opentelemetry-python.readthedocs.io/en/latest/getting-started.html#instrumentation-example-with-flask) which this example is using.
 
 1. Run the following to install the needed dependencies in your local environment:
     ```
