@@ -1,6 +1,7 @@
 # flask_example.py
 import flask
 import requests
+
 from opentelemetry import trace
 from opentelemetry.instrumentation.flask import FlaskInstrumentor
 from opentelemetry.instrumentation.requests import RequestsInstrumentor
@@ -17,9 +18,10 @@ from opentelemetry import trace as OpenTelemetry
 from opentelemetry.exporter.otlp.proto.http.trace_exporter import (
     OTLPSpanExporter,
 )
+
 resource = Resource.create({
-    "service.name": "taco-baron", #TODO Replace with the name of your application
-    "service.version": "4.0.0" #TODO Replace with the version of your application
+    "service.name": "dt-python-opentel", #TODO Replace with the name of your application
+    "service.version": "1.0.0" #TODO Replace with the version of your application
 })
 
 for name in ["dt_metadata_e617c525669e072eebe3d0f08212e8f2.properties", "/var/lib/dynatrace/enrichment/dt_metadata.properties"]:
@@ -36,11 +38,9 @@ OpenTelemetry.set_tracer_provider(TracerProvider(resource=resource, sampler=samp
 
 OpenTelemetry.get_tracer_provider().add_span_processor(
     BatchSpanProcessor(OTLPSpanExporter(
-#TODO Replace <TENANT> with your unique tenant id:
-        endpoint="https://<TENANTID>.live.dynatrace.com/api/v2/otlp/v1/traces", 
-#TODO Replace <TOKEN> with your API Token scoped with "Ingest OpenTelemetry traces"
+        endpoint="https://<TENANTID>.live.dynatrace.com/api/v2/otlp/v1/traces", #TODO Replace <TENANT> with your unique tenant id:
         headers={
-            "Authorization": "<TOKEN>" 
+            "Authorization": "<TOKEN>" #TODO Replace <TOKEN> with your API Token scoped with "Ingest OpenTelemetry traces"
         },
     ))
 )
