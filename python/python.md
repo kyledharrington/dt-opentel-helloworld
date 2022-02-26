@@ -49,18 +49,18 @@
 
     _Applications & Microservices --> Distributed Traces --> Ingested Traces_ 
 
-    <img src="img/python_traces.png" width="500">
+    <img src="img/python_traces.png" width="700">
 
 1. Each request is captured with its opentelemetry trace ids, spans and timing metrics.
 
     > NOTE:  The Attributes section indicates "Values note stored". Unless explicitly set, Dynatrace does not store this data. We will configure some of these fields in a later step.
     
  
-    <img src="img/python_traceid.png" width="500">
+    <img src="img/python_traceid.png" width="700">
 
 1.  Further information can be reviewed by  selecting "traces" from the top right of the ingested trace, providing the classic Dynatrace Purepath view for Open Telemetry traces
 
-    <img src="img/python_path.png" width="500">
+    <img src="img/python_path.png" width="700">
 
 ### Storing OpenTelemetry Span and Resource Attributes in Dynatrace
 
