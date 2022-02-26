@@ -5,11 +5,13 @@
 
 1. Please see the [Instrument Python applications with OpenTelemetry](https://www.dynatrace.com/support/help/extend-dynatrace/opentelemetry/opentelemetry-ingest/opent-python) link for prerequisites
 
+1. The [python_flask_example](.python_flask_example.py) in this repository will be used in this example
+
 1. Please be sure to install the following pip dependencies in your environment 
 
     > please note, not all of these dependencies are needed for Dynatrace instrumentation, but are required for the [Open Telemetry Example Quick Start](https://opentelemetry-python.readthedocs.io/en/latest/getting-started.html#instrumentation-example-with-flask)
 
-1. Run the following:
+1. Run the following to install the needed dependencies in your local environment:
     ```
     pip install opentelemetry-api
     pip install opentelemetry-sdk
