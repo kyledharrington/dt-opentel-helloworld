@@ -60,7 +60,7 @@
 
 1.  Further information can be reviewed by  selecting "traces" from the top right of the ingested trace, providing the classic Dynatrace Purepath view for Open Telemetry traces
 
-      <img src="img/python_path.png" width="500">
+    <img src="img/python_path.png" width="500">
 
 ### Storing OpenTelemetry Span and Resource Attributes in Dynatrace
 
@@ -81,10 +81,10 @@
 
 1. Add the relevant keys from your span & resource  attributes which you want Dynatrace to capture:
 
-   <img src="img/python_spanatts.png" width="500">
+    <img src="img/python_spanatts.png" width="500">
 
-   <img src="img/python_resourceatts.png" width="500">
+    <img src="img/python_resourceatts.png" width="500">
 
 1.  These attributes will then be stored in Dynatrace on all subsequent spans sent to Dynatrace:
 
-<img src="img/python_attributesset.png" width="500">
+    <img src="img/python_attributesset.png" width="500">
