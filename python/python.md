@@ -5,7 +5,7 @@
 
 1. Please see the [Instrument Python applications with OpenTelemetry](https://www.dynatrace.com/support/help/extend-dynatrace/opentelemetry/opentelemetry-ingest/opent-python) link for prerequisites
 
-1. The [python_flask_example](.python_flask_example.py) in this repository will be used in this example
+1. The [python_flask_example](https://raw.githubusercontent.com/kyledharrington/dt-opentel-helloworld/main/python/python_flask_example.py) in this repository will be used in this example
 
 1. Please be sure to install the following pip dependencies in your environment 
 
