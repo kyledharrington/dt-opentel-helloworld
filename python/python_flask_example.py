@@ -1,6 +1,8 @@
 # flask_example.py
 import flask
 import requests
+from fibonacci import fibonacci
+from logger import logger
 
 from opentelemetry import trace
 from opentelemetry.instrumentation.flask import FlaskInstrumentor
@@ -61,5 +63,14 @@ def hello():
     with tracer.start_as_current_span("example-request"):
         requests.get("http://www.example.com")
     return "hello"
-    
+
+@app.route("/calculate-fib")
+def calculateFib():
+    current_span = trace.get_current_span()
+    n = random.randint(1,20)
+    current_span.set_attribute("fibonacci.number",n)
+    fib = fibonacci(n)
+    logger(hex(current_span.context.trace_id)[2:], hex(current_span.context.span_id)[2:], "The calculate-fib n: {n}, fib: {fib}".format(n=n,fib=fib), current_span.start_time)
+    return "hello calculate-fib n: {n}, fib: {fib}. Trace_id:{trace_id} and Span_id:{span_id}".format(n=n,fib=fib, trace_id=hex(current_span.context.trace_id)[2:], span_id=hex(current_span.context.span_id)[2:])
+
 app.run(port=5000)
