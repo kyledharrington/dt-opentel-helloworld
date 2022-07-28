@@ -96,7 +96,7 @@
 
 1. Send traffic via web browser or GET request to:
     ```
-    http://localhost:5000//calculate-fib
+    http://localhost:5000/calculate-fib
     ```
 > This endpoint will run fibonacci's algorithm and respond with the number tested, result, span_id and trace_id for the current trace.
 
