@@ -22,11 +22,12 @@
     pip install opentelemetry-exporter-otlp-proto-http
     ``` 
 
-1. Once all dependencies are installed you will need to append the python_flask_example.py file with your dynatrace ID & api tokens at lines 41 & 43, respectively:
+1. Once all dependencies are installed you will need to append the python_flask_example.py file with your dynatrace ID & api tokens at lines 41 & 42, respectively:
 
     <img src="img/python_config.png" width="700">
 
     > [Please see the Send data to Dynatrace section for token scopes needed](https://www.dynatrace.com/support/help/shortlink/opent-python)
+    > Access Token Permissions: Ingest logs, Ingest OpenTelemetry traces
 
 
 1. You can then run the flask app:

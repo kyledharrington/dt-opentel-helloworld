@@ -38,11 +38,14 @@ for name in ["dt_metadata_e617c525669e072eebe3d0f08212e8f2.properties", "/var/li
 
 OpenTelemetry.set_tracer_provider(TracerProvider(resource=resource, sampler=sampling.ALWAYS_ON))
 
+tenantId = 'TENANTID'
+token = 'TOKEN'
+
 OpenTelemetry.get_tracer_provider().add_span_processor(
     BatchSpanProcessor(OTLPSpanExporter(
-        endpoint="https://<TENANTID>.live.dynatrace.com/api/v2/otlp/v1/traces", #TODO Replace <TENANT> with your unique  tenant id:
+        endpoint="https://{tenantId}.live.dynatrace.com/api/v2/otlp/v1/traces".format(tenantId=tenantId), #TODO Replace <TENANT> with your unique  tenant id:
         headers={
-            "Authorization": "Api-Token <TOKEN>" #TODO Replace <TOKEN> with your API Token scoped with "Ingest OpenTelemetry traces"
+            "Authorization": "Api-Token <token>".format(token=token) #TODO Replace <TOKEN> with your API Token scoped with "Ingest OpenTelemetry traces"
         },
     ))
 )
@@ -70,7 +73,7 @@ def calculateFib():
     n = random.randint(1,20)
     current_span.set_attribute("fibonacci.number",n)
     fib = fibonacci(n)
-    logger(hex(current_span.context.trace_id)[2:], hex(current_span.context.span_id)[2:], "The calculate-fib n: {n}, fib: {fib}".format(n=n,fib=fib), current_span.start_time)
+    logger(hex(current_span.context.trace_id)[2:], hex(current_span.context.span_id)[2:], "The calculate-fib n: {n}, fib: {fib}".format(n=n,fib=fib), current_span.start_time, tenantId, token)
     return "hello calculate-fib n: {n}, fib: {fib}. Trace_id:{trace_id} and Span_id:{span_id}".format(n=n,fib=fib, trace_id=hex(current_span.context.trace_id)[2:], span_id=hex(current_span.context.span_id)[2:])
 
 app.run(port=5000)

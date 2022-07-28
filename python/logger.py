@@ -1,10 +1,10 @@
 import requests, json
 
-def logger(trace_id, span_id, content, timestamp):
+def logger(trace_id, span_id, content, timestamp, tenantId, token):
     try:
         log = {"content":content,"trace_id":trace_id, "span_id":span_id, "timestamp":timestamp}
-        api = {'Accept': 'application/json; charset=utf-8', 'Content-Type': 'application/json; charset=utf-8', 'Authorization' : "Api-Token {ACCESS TOKEN}"}
-        post = requests.post('https://{TENANTID}.live.dynatracelabs.com/api/v2/logs/ingest', headers=api, params={}, data=json.dumps(log))
+        api = {'Accept': 'application/json; charset=utf-8', 'Content-Type': 'application/json; charset=utf-8', 'Authorization' : "Api-Token {token}".format(token=token)}
+        post = requests.post('https://{tenantId}.live.dynatracelabs.com/api/v2/logs/ingest'.format(tenantId=tenantId), headers=api, params={}, data=json.dumps(log))
         post.raise_for_status()
         print(post.status_code)
     except requests.exceptions.Timeout as err:
