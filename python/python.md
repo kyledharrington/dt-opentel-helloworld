@@ -22,11 +22,12 @@
     pip install opentelemetry-exporter-otlp-proto-http
     ``` 
 
-1. Once all dependencies are installed you will need to append the python_flask_example.py file with your dynatrace ID & api tokens at lines 41 & 43, respectively:
+1. Once all dependencies are installed you will need to append the python_flask_example.py file with your dynatrace ID & api tokens at lines 41 & 42, respectively:
 
     <img src="img/python_config.png" width="700">
 
     > [Please see the Send data to Dynatrace section for token scopes needed](https://www.dynatrace.com/support/help/shortlink/opent-python)
+    > Access Token Permissions: Ingest logs, Ingest OpenTelemetry traces
 
 
 1. You can then run the flask app:
@@ -90,3 +91,27 @@
 1.  These attributes will then be stored in Dynatrace on all subsequent spans sent to Dynatrace:
 
     <img src="img/python_attributesset.png" width="500">
+
+### Linking Opentelemetry Traces to Logs in Dynatrace
+> Dynatrace is able to injest logs with trace/span context via API and link those logs to traces.
+
+1. Send traffic via web browser or GET request to:
+    ```
+    http://localhost:5000/calculate-fib
+    ```
+> This endpoint will run fibonacci's algorithm and respond with the number tested, result, span_id and trace_id for the current trace.
+
+```
+    hello calculate-fib n: 10, fib: 55. Trace_id:b2636fc418c2b4e837f3ea20ab289c7b and Span_id:809f2caf24f8ca24
+```
+> The trace_id and span_id and result of the algorithm will be posted as a log to Dynatrace. This will result in a ingested log associated with a trace.
+
+<img src="img/log_viewer.png" width="500">
+
+2. Navigate to the log and click on 'View Trace'
+
+<img src="img/log_trace.png" width="500">
+
+> This will open up the trace associated with this log
+
+<img src="img/log_trace_2.png" width="500">
